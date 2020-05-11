@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+// import logo from "./logo.svg";
+import "./App.css";
+import { BoilingVerdict } from "./BoilingVerdict.js";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export class Calculator extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { temperature: "" };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({ temperature: e.target.value });
+  }
+
+  render() {
+    const temperature = this.state.temperature;
+    return (
+      <fieldset>
+        <legend>Enter temperature in Celcius:</legend>
+        <input type="number" value={temperature} onChange={this.handleChange} />
+        <BoilingVerdict celcius={this.state.temperature} />
+      </fieldset>
+    );
+  }
 }
 
-export default App;
+// export function App() {
+//   return (
+//     <div className="App">
+//       <h1>Hello</h1>
+//     </div>
+//   );
+// }
