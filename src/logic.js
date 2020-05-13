@@ -1,12 +1,12 @@
-function toCelcius(fahrenheit) {
+export function toCelcius(fahrenheit) {
   return (fahrenheit - 32) * (5 / 9);
 }
 
-function toFahrenheit(celcius) {
+export function toFahrenheit(celcius) {
   return (celcius * 9) / 5 + 32;
 }
 
-function converter(temp, convert) {
+export function converter(temp, convert) {
   const input = parseFloat(temp);
   if (isNaN(input)) {
     return "";
